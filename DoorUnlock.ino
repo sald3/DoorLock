@@ -9,10 +9,10 @@ bool onOff = false;
 
 void setup()
 {
-  myServo.attach(8);                          // attaches the servo on pin 8 to the myServo object
+  myServo.attach(6);                          // attaches the servo on pin 8 to the myServo object
   pinMode(TrigPin, OUTPUT);
   pinMode(EchoPin, INPUT);
-  pinMode(Data,OUTPUT);
+  pinMode(Light,OUTPUT);
   pinMode(Buttons,INPUT);
   Serial.begin(9600);
 }
@@ -28,14 +28,14 @@ void loop()
   Serial.println();
   if(cm<15){ //if you are puting the sensor behind the door use ">" sysmbole insted of ">" p.s. make sure tat the door nob is less than 15 cm away
       digitalWrite(Light,HIGH);
-      myServo.write(50);
+      myServo.write(75);
       delay(2000);
       onOff = true;
     }
 
    if(digitalRead(Buttons) == HIGH){
     digitalWrite(Light,HIGH);
-      myServo.write(50);
+      myServo.write(75);
       delay(2000);
       onOff = true;
    }
